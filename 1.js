@@ -63,7 +63,7 @@ const debouncedSearch = debounce(() => {
                     autocomplete.innerHTML = '';
                     searchInput.value = '';
                 })
-                if(localRepo.some(item => item.id === repo.id)){
+                if(localRepo && localRepo.some(item => item.id === repo.id)){
                     div.style.backgroundColor = 'green'
                 }
                 autocomplete.appendChild(div)
