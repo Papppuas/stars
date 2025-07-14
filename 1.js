@@ -3,7 +3,7 @@ const autocomplete = document.getElementById('autocomplete');
 const repoList = document.getElementById('repo-list');
 
 
-function debounce(callback, interval = 3500) {
+function debounce(callback, interval = 1500) {
     let timeoutId;
 
     return function(...args) {
