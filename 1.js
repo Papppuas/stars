@@ -1,7 +1,7 @@
 const searchInput = document.getElementById('search');
 const autocomplete = document.getElementById('autocomplete');
 const repoList = document.getElementById('repo-list');
-const localRepo = JSON.parse(localStorage.getItem('repositories' || []))
+const localRepo = JSON.parse(localStorage.getItem('repositories')) || []
 console.log(localRepo)
 function debounce(callback, interval = 3500) {
     let timeoutId;
