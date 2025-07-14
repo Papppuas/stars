@@ -35,3 +35,14 @@
     border: 1px solid red;
     font-size: 25px;
 }
+.dublikat {
+    border: 1px solid black;
+    padding: 10px;
+    max-width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: red;
+    color: white;
+    font-weight: boold;
+}

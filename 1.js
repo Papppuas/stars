@@ -1,8 +1,9 @@
 const searchInput = document.getElementById('search');
 const autocomplete = document.getElementById('autocomplete');
 const repoList = document.getElementById('repo-list');
-
-function debounce(callback, interval = 1500) {
+const localRepo = JSON.parse(localStorage.getItem('repositories'))
+console.log(localRepo)
+function debounce(callback, interval = 3500) {
     let timeoutId;
 
     return function(...args) {
@@ -13,24 +14,11 @@ function debounce(callback, interval = 1500) {
     };
 }
 
-function addRepository(repo) {
-    const container = document.createElement('div');
-    container.className = 'repo'
 
-    const info = document.createElement('div');
-    info.className = 'repo-info'
-    info.innerHTML = `Name: ${repo.name} <br> Owner: ${repo.owner.login}<br> Stars: ${repo.stargazers_count}`;
 
-    const delBtn = document.createElement("button")
-    delBtn.className = 'delete-btn';
-    delBtn.textContent = 'удалить';
-    delBtn.addEventListener( 'click', () => {
-        container.remove()
-    })
-    container.appendChild(info);
-    container.appendChild(delBtn);
-    repoList.appendChild(container);
-}
+
+
+
 
 
 const debouncedSearch = debounce(() => {
@@ -75,6 +63,9 @@ const debouncedSearch = debounce(() => {
                     autocomplete.innerHTML = '';
                     searchInput.value = '';
                 })
+                if(localRepo.some(item => item.id === repo.id)){
+                    div.style.backgroundColor = 'green'
+                }
                 autocomplete.appendChild(div)
             })
         })
