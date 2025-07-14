@@ -1,4 +1,5 @@
 function addRepository(repo) {
+    let localRepo = JSON.parse(localStorage.getItem('repositories')) || []
     if (localRepo.some(item => item.id === repo.id)){
        const dublikat = document.createElement('div')
         dublikat.className = 'dublikat'

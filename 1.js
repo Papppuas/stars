@@ -1,8 +1,8 @@
 const searchInput = document.getElementById('search');
 const autocomplete = document.getElementById('autocomplete');
 const repoList = document.getElementById('repo-list');
-const localRepo = JSON.parse(localStorage.getItem('repositories')) || []
-console.log(localRepo)
+
+
 function debounce(callback, interval = 3500) {
     let timeoutId;
 
@@ -63,7 +63,8 @@ const debouncedSearch = debounce(() => {
                     autocomplete.innerHTML = '';
                     searchInput.value = '';
                 })
-                if(Array.isArray(localRepo) && localRepo.some(item => item.id === repo.id)){
+                let localRepo = JSON.parse(localStorage.getItem('repositories')) || []
+                if(localRepo && localRepo.some(item => item.id === repo.id)){
                     div.style.backgroundColor = 'green'
                 }
                 autocomplete.appendChild(div)
